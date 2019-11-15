@@ -8,20 +8,31 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>UNCTF新星赛wp | 麦窝客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="![2019-11-15 12-32-51 的屏幕截图](2019-10-27-UNCTF新星赛wp.assets&#x2F;2019-11-15 12-32-51 的屏幕截图.png) = =平台关了 有的图没截全 有的忘了过程。。尽量写吧 By:小帽WEBDo you like xml?看到题目就猜到是xxe了，好像不能直接利用，使用php伪协议（正好前些天中关村比赛刚考完这个）">
+  <meta name="description" content="= =平台关了 有的图没截全 有的忘了过程。。尽量写吧">
 <meta name="keywords" content="Writeup">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UNCTF新星赛wp">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;index.html">
 <meta property="og:site_name" content="麦窝客">
-<meta property="og:description" content="![2019-11-15 12-32-51 的屏幕截图](2019-10-27-UNCTF新星赛wp.assets&#x2F;2019-11-15 12-32-51 的屏幕截图.png) = =平台关了 有的图没截全 有的忘了过程。。尽量写吧 By:小帽WEBDo you like xml?看到题目就猜到是xxe了，好像不能直接利用，使用php伪协议（正好前些天中关村比赛刚考完这个）">
+<meta property="og:description" content="= =平台关了 有的图没截全 有的忘了过程。。尽量写吧">
 <meta property="og:locale" content="zh-en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;jcjcjc&#x2F;Downloads&#x2F;827804846.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;jcjcjc&#x2F;Downloads&#x2F;1721427014.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;jcjcjc&#x2F;Downloads&#x2F;1346953636.jpg">
-<meta property="og:updated_time" content="2019-11-15T13:21:42.896Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;2019-10-2521-37-43%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;2019-10-2609-12-22%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;2019-10-2609-11-34%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;2019-10-2413-30-54%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;2019-10-2413-45-37%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;2019-10-2323-50-03%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;827804846.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;2019-10-2108-02-30%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;2019-10-2108-02-47%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;2019-10-2722-48-13%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;1721427014.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;2019-10-2811-41-56%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;1346953636.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;2019-10-2811-36-11%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:updated_time" content="2019-11-15T15:48:57.407Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;jcjcjc&#x2F;Downloads&#x2F;827804846.jpg">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp&#x2F;2019-10-2521-37-43%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
   
     <link rel="alternative" href="/atom.xml" title="麦窝客" type="application/atom+xml">
   
@@ -50,7 +61,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/imgs/logo.png" class="js-avatar">
+			<img src="/imgs/logo.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">小帽</a></h1>
@@ -112,7 +123,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/imgs/logo.png" class="js-avatar">
+				<img src="/imgs/logo.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">小帽</h1>
@@ -187,52 +198,52 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>![2019-11-15 12-32-51 的屏幕截图](2019-10-27-UNCTF新星赛wp.assets/2019-11-15 12-32-51 的屏幕截图.png)</p>
-<p>= =平台关了 有的图没截全 有的忘了过程。。尽量写吧</p>
-<h6 id="By-小帽"><a href="#By-小帽" class="headerlink" title="By:小帽"></a>By:小帽</h6><h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="Do-you-like-xml"><a href="#Do-you-like-xml" class="headerlink" title="Do you like xml?"></a>Do you like xml?</h3><p>看到题目就猜到是xxe了，好像不能直接利用，使用php伪协议（正好前些天中关村比赛刚考完这个）</p>
+        <p>= =平台关了 有的图没截全 有的忘了过程。。尽量写吧</p>
 <a id="more"></a>
-<p>![2019-10-25 21-37-43 的屏幕截图](/home/jcjcjc/Pictures/2019-10-25 21-37-43 的屏幕截图.png)</p>
+
+<h6 id="By-小帽"><a href="#By-小帽" class="headerlink" title="By:小帽"></a>By:小帽</h6><h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="Do-you-like-xml"><a href="#Do-you-like-xml" class="headerlink" title="Do you like xml?"></a>Do you like xml?</h3><p>看到题目就猜到是xxe了，好像不能直接利用，使用php伪协议（正好前些天中关村比赛刚考完这个）</p>
+<p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/2019-10-2521-37-43%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="2019-10-2521-37-43的屏幕截图"></p>
 <p>python把base64解开写进文件，strings找就行了</p>
 <h3 id="光坂镇的小诗1"><a href="#光坂镇的小诗1" class="headerlink" title="光坂镇的小诗1"></a>光坂镇的小诗1</h3><p>单引号被转义，宽字节注入sqlmap一把嗦</p>
 <h3 id="光坂镇的小诗2"><a href="#光坂镇的小诗2" class="headerlink" title="光坂镇的小诗2"></a>光坂镇的小诗2</h3><p>好像是sqlmap一把嗦</p>
 <h3 id="easy-php"><a href="#easy-php" class="headerlink" title="easy php"></a>easy php</h3><p>好像变量里的括号之间字数有最大限制，还必须出现cat字符</p>
 <p>x=$cat=’flag.php’;highlight_file($cat);</p>
 <h3 id="WEB2"><a href="#WEB2" class="headerlink" title="WEB2"></a>WEB2</h3><p>直接上传jpg文件，好像.htaccess已经被构造过了</p>
-<p>![2019-10-26 09-12-22 的屏幕截图](/home/jcjcjc/Pictures/2019-10-26 09-12-22 的屏幕截图.png)</p>
-<p>![2019-10-26 09-11-34 的屏幕截图](/home/jcjcjc/Pictures/2019-10-26 09-11-34 的屏幕截图.png)</p>
+<p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/2019-10-2609-12-22%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="2019-10-2609-12-22的屏幕截图"></p>
+<p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/2019-10-2609-11-34%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="2019-10-2609-11-34的屏幕截图"></p>
 <h3 id="WEB1"><a href="#WEB1" class="headerlink" title="WEB1"></a>WEB1</h3><p>构造get post</p>
-<p>![2019-10-24 13-30-54 的屏幕截图](/home/jcjcjc/Pictures/2019-10-24 13-30-54 的屏幕截图.png)</p>
-<p>![2019-10-24 13-45-37 的屏幕截图](/home/jcjcjc/Pictures/2019-10-24 13-45-37 的屏幕截图.png)</p>
+<p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/2019-10-2413-30-54%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="2019-10-2413-30-54的屏幕截图"></p>
+<p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/2019-10-2413-45-37%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="2019-10-2413-45-37的屏幕截图"></p>
 <h3 id="Simple-Calc-2"><a href="#Simple-Calc-2" class="headerlink" title="Simple_Calc_2"></a>Simple_Calc_2</h3><p>emmm 这个看出是php代码执行了，然而不会利用。。</p>
 <h3 id="checkinA"><a href="#checkinA" class="headerlink" title="checkinA"></a>checkinA</h3><p>我也不知道怎么就有人在聊天室发flag，还能提交- -</p>
 <h3 id="Simple-Calc-1"><a href="#Simple-Calc-1" class="headerlink" title="Simple_Calc_1"></a>Simple_Calc_1</h3><p>看了两个hint才知道原来http头也可以和后台数据库操作，之前没思路还到github上找这个项目，发现没有那个第几次上线的功能，其实也有疑虑，纯前端是怎么做到记录次数的，只是注意力被那个打电话吸引走了，无意间用手机长按了下跳转到拨号盘才放弃。</p>
 <p>看了第一个hint，把本机配成服务器ip，看计数从0开始了，其他没有变化（因为之前xff只在攻防世界上看过改为本机的）</p>
 <p>写这么啰嗦其实是因为这个题没啥东西了，就是xff注入了，sqlmap一把嗦</p>
-<p>![2019-10-23 23-50-03 的屏幕截图](/home/jcjcjc/Pictures/2019-10-23 23-50-03 的屏幕截图.png)</p>
+<p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/2019-10-2323-50-03%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="2019-10-2323-50-03的屏幕截图"></p>
 <h3 id="上传给小姐姐的照片"><a href="#上传给小姐姐的照片" class="headerlink" title="上传给小姐姐的照片"></a>上传给小姐姐的照片</h3><p>vim编辑器源码泄漏，/index.php.swp</p>
 <p>文件名是./uploads/ $filename $file_ext拼接的，无意发现变量可以在get地方赋值过去，给get $file_ext=php就传上了</p>
 <h2 id="PWN"><a href="#PWN" class="headerlink" title="PWN"></a>PWN</h2><h3 id="NC"><a href="#NC" class="headerlink" title="NC"></a>NC</h3><p>同题目</p>
 <h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="快乐游戏题"><a href="#快乐游戏题" class="headerlink" title="快乐游戏题"></a>快乐游戏题</h3><p>游戏就完事</p>
 <h3 id="亲爱的"><a href="#亲爱的" class="headerlink" title="亲爱的"></a>亲爱的</h3><p>binwalk看有个压缩包，winhex看最后有个qqmusic信息，后来看出题人在群里说：这个题随着时间越久越难，上qq音乐评论区找到解压密码</p>
 <h3 id="我的头怎么了"><a href="#我的头怎么了" class="headerlink" title="我的头怎么了"></a>我的头怎么了</h3><p>看到题目就猜到改文件头了，用winhex按后缀名修改文件头，打开后有一帧有flag（忘了最近在哪见过类似题了）</p>
-<h3 id="长安十二时辰"><a href="#长安十二时辰" class="headerlink" title="长安十二时辰"></a>长安十二时辰</h3><p><img src="/.com//jcjcjc/Downloads/827804846.jpg" alt="827804846"></p>
+<h3 id="长安十二时辰"><a href="#长安十二时辰" class="headerlink" title="长安十二时辰"></a>长安十二时辰</h3><p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/827804846.jpg" alt="827804846"></p>
 <p>ctftools没解出来，看见U N ，猜栏为6，写着写着看单词有点眼熟，直接拼上了，后几位是直接续在后面的。。。</p>
-<h3 id="贝斯的图"><a href="#贝斯的图" class="headerlink" title="贝斯的图"></a>贝斯的图</h3><p>![2019-10-21 08-02-30 的屏幕截图](/home/jcjcjc/Pictures/2019-10-21 08-02-30 的屏幕截图.png)</p>
+<h3 id="贝斯的图"><a href="#贝斯的图" class="headerlink" title="贝斯的图"></a>贝斯的图</h3><p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/2019-10-2108-02-30%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="2019-10-2108-02-30的屏幕截图"></p>
 <p>明显base64编码图片，网上解码，扫码</p>
-<p>![2019-10-21 08-02-47 的屏幕截图](/home/jcjcjc/Pictures/2019-10-21 08-02-47 的屏幕截图.png)</p>
+<p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/2019-10-2108-02-47%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="2019-10-2108-02-47的屏幕截图"></p>
 <h3 id="平淡日子下的秘密"><a href="#平淡日子下的秘密" class="headerlink" title="平淡日子下的秘密"></a>平淡日子下的秘密</h3><p>Stegsolve翻到个二维码，lsb见到个带密码的压缩包，这里有点坑，没想到二维码就是压缩包密码。。</p>
 <h3 id="压缩大礼包"><a href="#压缩大礼包" class="headerlink" title="压缩大礼包"></a>压缩大礼包</h3><p>备注位置存二进制文件 伪加密 明文攻击 crc爆破 摩斯密码 暴力破解</p>
-<h2 id="REVERSE"><a href="#REVERSE" class="headerlink" title="REVERSE"></a>REVERSE</h2><h3 id="rookie—reverse"><a href="#rookie—reverse" class="headerlink" title="rookie—reverse"></a>rookie—reverse</h3><p>![2019-10-27 22-48-13 的屏幕截图](/home/jcjcjc/Pictures/2019-10-27 22-48-13 的屏幕截图.png)</p>
+<h2 id="REVERSE"><a href="#REVERSE" class="headerlink" title="REVERSE"></a>REVERSE</h2><h3 id="rookie—reverse"><a href="#rookie—reverse" class="headerlink" title="rookie—reverse"></a>rookie—reverse</h3><p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/2019-10-2722-48-13%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="2019-10-2722-48-13的屏幕截图"></p>
 <p>找不着题了，看解题脚本原程序应该就异或+1吧。。。</p>
 <h3 id="调试器的初体验"><a href="#调试器的初体验" class="headerlink" title="调试器的初体验"></a>调试器的初体验</h3><p>打开就报出了个base64形状的错，解开提交 成功，以为是非预期，问了出题人，监听到ida或者od就弹flag，原来是ida打开着unctf_babyre2那个题。。</p>
 <h3 id="unctf-babyre"><a href="#unctf-babyre" class="headerlink" title="unctf_babyre"></a>unctf_babyre</h3><p>四个字一组来回异或相加，这里多一步就是原程序两个char相加溢出后溢出去的就抹掉了，所以逆向要先判断相减是复数的话要加0x100，也就是补上他一位</p>
-<p><img src="/.com//jcjcjc/Downloads/1721427014.jpg" alt="1721427014"></p>
-<p>![2019-10-28 11-41-56 的屏幕截图](/home/jcjcjc/Pictures/2019-10-28 11-41-56 的屏幕截图.png)</p>
+<p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/1721427014.jpg" alt="1721427014"></p>
+<p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/2019-10-2811-41-56%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="2019-10-2811-41-56的屏幕截图"></p>
 <h3 id="unctf-babyre2"><a href="#unctf-babyre2" class="headerlink" title="unctf_babyre2"></a>unctf_babyre2</h3><p>唉 解出了后半段，前面有个循环移位来回异或不会逆向= =</p>
 <p>后半段好像是个置换</p>
 <h3 id="very-easy-re"><a href="#very-easy-re" class="headerlink" title="very_easy_re"></a>very_easy_re</h3><p>好像是每位异或在字符串中位数然后置换一下。</p>
-<p><img src="/.com//jcjcjc/Downloads/1346953636.jpg" alt="1346953636"></p>
-<p>![2019-10-28 11-36-11 的屏幕截图](/home/jcjcjc/Pictures/2019-10-28 11-36-11 的屏幕截图.png)</p>
+<p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/1346953636.jpg" alt="1346953636"></p>
+<p><img src="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/2019-10-2811-36-11%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="2019-10-2811-36-11的屏幕截图"></p>
 <h2 id="CRYPTO"><a href="#CRYPTO" class="headerlink" title="CRYPTO"></a>CRYPTO</h2><h3 id="BABYRSA"><a href="#BABYRSA" class="headerlink" title="BABYRSA"></a>BABYRSA</h3><p>简单的rsa，n的值太小可以直接分解质因数计算p q，之后正常操作求明文</p>
 <h3 id="bacon"><a href="#bacon" class="headerlink" title="bacon"></a>bacon</h3><p>培根秘密</p>
 <h3 id="云归不深处"><a href="#云归不深处" class="headerlink" title="云归不深处"></a>云归不深处</h3><p>云影密码</p>
@@ -253,6 +264,16 @@
                   <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/1649815010.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/1422832397.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
                     
                   </div>
                 </span>
