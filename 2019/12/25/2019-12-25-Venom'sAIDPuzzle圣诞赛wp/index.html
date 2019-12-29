@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 麦窝客</title>
+  <title>Venom&#39;s AID Puzzle圣诞赛wp | 麦窝客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ctf新人">
-<meta name="keywords" content="ctf,misc,buu,xiaomao">
-<meta property="og:type" content="website">
-<meta property="og:title" content="麦窝客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;index.html">
+  <meta name="description" content="水了个一下，发布下writeup庆祝- -">
+<meta name="keywords" content="Writeup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Venom&#39;s AID Puzzle圣诞赛wp">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;25&#x2F;2019-12-25-Venom&#39;sAIDPuzzle%E5%9C%A3%E8%AF%9E%E8%B5%9Bwp&#x2F;index.html">
 <meta property="og:site_name" content="麦窝客">
-<meta property="og:description" content="ctf新人">
+<meta property="og:description" content="水了个一下，发布下writeup庆祝- -">
 <meta property="og:locale" content="zh-en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;25&#x2F;2019-12-25-Venom">
+<meta property="og:updated_time" content="2019-12-29T07:28:44.024Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;25&#x2F;2019-12-25-Venom">
   
     <link rel="alternative" href="/atom.xml" title="麦窝客" type="application/atom+xml">
   
@@ -170,36 +173,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-2019-12-25-Venom&#39;sAIDPuzzle圣诞赛wp" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Venom&#39;s AID Puzzle圣诞赛wp
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/25/2019-12-25-Venom'sAIDPuzzle%E5%9C%A3%E8%AF%9E%E8%B5%9Bwp/" class="archive-article-date">
+
+        
+        <a href="/2019/12/25/2019-12-25-Venom'sAIDPuzzle%E5%9C%A3%E8%AF%9E%E8%B5%9Bwp/" class="archive-article-date">
   	<time datetime="2019-12-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/25/2019-12-25-Venom'sAIDPuzzle%E5%9C%A3%E8%AF%9E%E8%B5%9Bwp/">Venom&#39;s AID Puzzle圣诞赛wp</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>水了个一下，发布下writeup庆祝- -</p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<h6 id="by-小帽"><a href="#by-小帽" class="headerlink" title="by:小帽"></a>by:小帽</h6><p>拿到图片分解质因数(后来发现直接比对下长宽像素就好了，开始不知道那个完整的图是这个意思，zsteg扫了半天- -)</p>
+<p>然后用之前准备的拼图脚本试一下，才明白过来那个图是给了之前大概样子</p>
+<p>我这种渣渣想起了几年前做的自动分享某微信小游戏广告的工具，判断在哪个页面就是检测几个图片上的像素，如果是我预设的那个 就执行操作。也就是说通过几个像素确定在那个页面。</p>
+<p>言归正传 我的做法就是把无干扰的图也分割开，然后从中抽几个像素点记录下来我抽了（0,0）（0,10）（0,19）（10,0）（10,10）（10,19）（20,0）（20,10）（20,19）（30,0）（30,10）（30,19）这几个点（后来有加过两个点 效果不大）</p>
+<p>然后按顺序循环遍历所有图片，找这些图只要抽查的这些点有6个像素和原图的一样 就把他拼上，然后拼上的这张图不再参与后面的循环（有试过让他继续参与循环各有利弊 玄学）（这里的6看情况玄学浮动）</p>
+<p>本来是想做的每个图片位置循环看一下哪张图抽查的点和原图像素一样的多，而不是看到一个大于设定的6就结束。但是看后面的题有说运行时间也算得分依据（其实是懒得写了），这就是 出现上面两个玄学的原因 如果这样做竞争的话应该就不需考虑上面两个问题</p>
+<p>。。好像写的有点乱。。上午写完代码调那个参数加上题目的小问题搞的我现在脑子疼…</p>
+<p>第二题也是同样的思路，只是抽查的点换了。</p>
+<p>还有什么好说的呢  前两次机会开始有问题 第三次答案在树和雪中间那 开始半天没跑出来，想py个美团快递服温暖下我的心hh（误</p>
+<p>ps:挑战题用我电脑运行需要12分钟 要是比师傅们验证还慢今年寒假就在京东换笔记本  flag已立  只差钱和优惠券&lt;疯狂暗示&gt;</p>
+<p><img src="/2019/12/25/2019-12-25-Venom'sAIDPuzzle%E5%9C%A3%E8%AF%9E%E8%B5%9Bwp/1577263160711.png" alt="1577263160711"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/1649815010.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/1422832397.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -211,171 +257,123 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/25/2019-12-25-Venom'sAIDPuzzle%E5%9C%A3%E8%AF%9E%E8%B5%9Bwp/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/16/2019-11-16-%E6%88%90%E9%83%BD%E5%A4%A7%E5%AD%A6%E6%A0%A1%E8%B5%9BWP/" class="archive-article-date">
-  	<time datetime="2019-11-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/16/2019-11-16-%E6%88%90%E9%83%BD%E5%A4%A7%E5%AD%A6%E6%A0%A1%E8%B5%9BWP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">成都大学校赛wp</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/16/2019-11-16-%E6%88%90%E9%83%BD%E5%A4%A7%E5%AD%A6%E6%A0%A1%E8%B5%9BWP/">成都大学校赛wp</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/16/2019-11-16-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2019-11-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/16/2019-11-16-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">面向对象编程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/" class="archive-article-date">
-  	<time datetime="2019-10-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/">UNCTF新星赛wp</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/30/lunwen/" class="archive-article-date">
-  	<time datetime="2019-06-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/30/lunwen/">基于Tensorflow的食堂菜价识别系统原理及实现</a>
-    </h1>
-  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "Venom&#39;s AID Puzzle圣诞赛wp",
+  owner: 'yikongge',
+  repo: 'yikongge.github.io',
+  oauth: {
+    client_id: '4f786e7ea331d845b491',
+    client_secret: 'dff4e5315680a11c322324b5331b529aea746a85',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -398,8 +396,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
