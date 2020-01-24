@@ -172,6 +172,129 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2020-1-22-BUUCTF刷题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/">BUUCTF寒假刷题笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-01-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h2 id="RoarCTF2019-黄金6年"><a href="#RoarCTF2019-黄金6年" class="headerlink" title="[RoarCTF2019]黄金6年"></a>[RoarCTF2019]黄金6年</h2><p>文件后面接了一串base64，解开是压缩包文件文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> base64</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a=<span class="string">'UmFyIRoHAQAzkrXlCgEFBgAFAQGAgADh7ek5VQIDPLAABKEAIEvsUpGAAwAIZmxhZy50eHQwAQADDx43HyOdLMGWfCE9WEsBZprAJQoBSVlWkJNS9TP5du2kyJ275JzsNo29BnSZCgMC3h+UFV9p1QEfJkBPPR6MrYwXmsMCMz67DN/k5u1NYw9ga53a83/B/t2G9FkG/IITuR+9gIvr/LEdd1ZRAwUEAA=='</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>file=open(<span class="string">'a.rar'</span>,<span class="string">'wb'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>file.write(base64.b64decode(a))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>file.close()</span><br></pre></td></tr></table></figure>
+
+<p>解压需要密码</p>
+<p>晃到视频里有压缩包 所以分帧</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i attachment.mp4 %d.jpeg</span><br></pre></td></tr></table></figure>
+
+<p>出来的结果比较模糊，不清楚 了解的是码率问题，解决方法：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg.ffprobe attachment.mp4</span><br></pre></td></tr></table></figure>
+
+<p>结果最下面有比特率 这样分出来的就清楚了</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i attachment.mp4 -b:v 9738k %d.jpeg</span><br></pre></td></tr></table></figure>
+
+<p>找到4个二维码扫码结果就是压缩包密码</p>
+<p>iwantplayctf</p>
+<p>roarctf{CTF-from-RuMen-to-RuYuan}</p>
+<h2 id="DDCTF2018-╯°□°）╯︵-┻━┻"><a href="#DDCTF2018-╯°□°）╯︵-┻━┻" class="headerlink" title="[DDCTF2018](╯°□°）╯︵ ┻━┻"></a>[DDCTF2018](╯°□°）╯︵ ┻━┻</h2><p>两位一组当hex，减128转ascii</p>
+<p><img src="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/1579694302398.png" alt="1579694302398"></p>
+<p>That was fast! The flag is: DDCTF{9a2beb54d87faa69d5c811ce56410df2}</p>
+<h2 id="GWCTF2019-math"><a href="#GWCTF2019-math" class="headerlink" title="[GWCTF2019]math"></a>[GWCTF2019]math</h2><p>就是做150次计算，开始还在想要怎么搞正则，看了眼官方wp 原来pwntools有recvuntil()方法，最后ls看到根目录下的flag.txt</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">p=remote(<span class="string">'node3.buuoj.cn'</span>,<span class="string">'25094'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">150</span>):</span><br><span class="line">        ou=p.recvuntil(<span class="string">'problem: '</span>)</span><br><span class="line">        <span class="keyword">print</span> ou</span><br><span class="line">        a=int(p.recvuntil(<span class="string">'*'</span>)[:<span class="number">-1</span>])</span><br><span class="line">        b=int(p.recvuntil(<span class="string">'-'</span>)[:<span class="number">-1</span>])</span><br><span class="line">        c=int(p.recvuntil(<span class="string">'+'</span>)[:<span class="number">-1</span>])</span><br><span class="line">        d=int(p.recvuntil(<span class="string">'='</span>)[:<span class="number">-1</span>])</span><br><span class="line">        p.sendline(str(a*b-c+d))</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/1579697388750.png" alt="1579697388750"></p>
+<p>flag{1b898da3-13e6-4796-8fe0-58ef4e1c42fe}</p>
+<h2 id="从娃娃抓起"><a href="#从娃娃抓起" class="headerlink" title="从娃娃抓起"></a>从娃娃抓起</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0086 1562 2535 5174</span><br><span class="line">bnhn s wwy vffg vffg rrhy fhnv</span><br></pre></td></tr></table></figure>
+
+<p>前半段是电报码，后半段五笔 正好虚拟机里只有五笔输入法 猛然一试出来了hhh</p>
+<p>md5(人工智能也要从娃娃抓起)</p>
+<p>flag{3b4b5dccd2c008fe7e2664bd1bc19292}</p>
+<h2 id="SWPU2019-我有一只马里奥"><a href="#SWPU2019-我有一只马里奥" class="headerlink" title="[SWPU2019]我有一只马里奥"></a>[SWPU2019]我有一只马里奥</h2><p>9012年，Misc题第一步strings hhh</p>
+<p><img src="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/1579698943413.png" alt="1579698943413"></p>
+<p>看到了rar,提出来看看呗（好像运行一下也会出来</p>
+<p>题目给的提示很到位了</p>
+<p><img src="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/1579747762344.png" alt="1579747762344"></p>
+<p>ntfs流隐写嘛，文件名也给了</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">notepad 1.txt:flag.txt</span><br></pre></td></tr></table></figure>
+
+<p>当然，直接上工具也没问题</p>
+<p><img src="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/1579747860294.png" alt="1579747860294"></p>
+<p>swupctf{ddg_is_cute}</p>
+<h2 id="HBNIS2018-低个头"><a href="#HBNIS2018-低个头" class="headerlink" title="[HBNIS2018]低个头"></a>[HBNIS2018]低个头</h2><p>孤儿题 在键盘上照着画出“CTF”字样- -</p>
+<p>flag{CTF}</p>
+<h2 id="HBNIS2018-来题中等的吧"><a href="#HBNIS2018-来题中等的吧" class="headerlink" title="[HBNIS2018]来题中等的吧"></a>[HBNIS2018]来题中等的吧</h2><p>解摩斯</p>
+<p><img src="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/1579781621964.png" alt="1579781621964"></p>
+<p>alphalab</p>
+<h2 id="RCTF2019-draw"><a href="#RCTF2019-draw" class="headerlink" title="[RCTF2019]draw"></a>[RCTF2019]draw</h2><p>文件看到fd rt啥的感觉就是个画路线的题</p>
+<p><img src="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/1579782028105.png" alt="1579782028105"></p>
+<p>百度一下是logo语言&lt;我小时候咋没学过 找了个工具运行有两个命令执行不了，后来找到了个在线的<a href="https://www.calormen.com/jslogo/" target="_blank" rel="noopener">https://www.calormen.com/jslogo/</a> 运行一把</p>
+<p><img src="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/1579783650117.png" alt="1579783650117"></p>
+<p>RCTF_HeyLogo</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">writeup</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2020-1-15-BUUctf-2nd复盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -706,6 +829,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">writeup</a>
               </li>
             
             <div class="clearfix"></div>
