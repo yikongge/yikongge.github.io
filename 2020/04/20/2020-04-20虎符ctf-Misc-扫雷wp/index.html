@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>麦窝客</title>
+  <title>虎符ctf-Misc-扫雷wp | 麦窝客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ctf新人 buu菜鸡 Misc萌新玩家">
-<meta name="keywords" content="ctf,misc,buu,xiaomao">
-<meta property="og:type" content="website">
-<meta property="og:title" content="麦窝客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="比赛时链接人数太多，比较卡 游戏体验不太舒适，当时只搞了一个 见到0就把他四周的块都点开的脚本，其他都要手工操作。 晚上在百度上检索到了有自动扫雷的脚本，学了下思路第二天做了一下。 最后环境关了也没出结果 不确定思路到底是不是这样">
+<meta name="keywords" content="Writeup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="虎符ctf-Misc-扫雷wp">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;20&#x2F;2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp&#x2F;index.html">
 <meta property="og:site_name" content="麦窝客">
-<meta property="og:description" content="ctf新人 buu菜鸡 Misc萌新玩家">
+<meta property="og:description" content="比赛时链接人数太多，比较卡 游戏体验不太舒适，当时只搞了一个 见到0就把他四周的块都点开的脚本，其他都要手工操作。 晚上在百度上检索到了有自动扫雷的脚本，学了下思路第二天做了一下。 最后环境关了也没出结果 不确定思路到底是不是这样">
 <meta property="og:locale" content="zh-en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;20&#x2F;2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp&#x2F;1587360236052.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;20&#x2F;2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp&#x2F;1587360280496.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;20&#x2F;2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp&#x2F;1587360390458.png">
+<meta property="og:updated_time" content="2020-04-20T05:33:00.941Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;20&#x2F;2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp&#x2F;1587360236052.png">
   
     <link rel="alternative" href="/atom.xml" title="麦窝客" type="application/atom+xml">
   
@@ -156,16 +161,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-2020-04-20虎符ctf-Misc-扫雷wp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-2020-04-20虎符ctf-Misc-扫雷wp" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/20/2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp/">虎符ctf-Misc-扫雷wp</a>
+    <h1 class="article-title" itemprop="name">
+      虎符ctf-Misc-扫雷wp
     </h1>
   
 
@@ -181,9 +184,59 @@
         <p>比赛时链接人数太多，比较卡 游戏体验不太舒适，当时只搞了一个 见到0就把他四周的块都点开的脚本，其他都要手工操作。</p>
 <p>晚上在百度上检索到了有自动扫雷的脚本，学了下思路第二天做了一下。</p>
 <p>最后环境关了也没出结果 不确定思路到底是不是这样</p>
-        
+<a id="more"></a>
+
+<h6 id="by-小帽"><a href="#by-小帽" class="headerlink" title="by:小帽"></a>by:小帽</h6><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>点开一个块儿，如果他周围没有点开的个数等于自身标号，就定义那些没有点开的都是雷</p>
+<p>如果一个块儿周围已经确定是雷的个数等于自身编号时，点开他周围其他的块儿</p>
+<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><p>真正执行的时候，第一个很容易过去了，第二个总是头两下点的直接炸了，有脚本也不好使- -</p>
+<p>有时真的会出现那种不能判断的情况，反正我的脑子是判断不出来</p>
+<p>有时会莫名断开连接</p>
+<h2 id="代码定义"><a href="#代码定义" class="headerlink" title="代码定义"></a>代码定义</h2><p>全局变量x y代表光标目前的位置</p>
+<p>列表maa是获取的游戏界面，列表lei用1标记了哪一位已经确定是雷</p>
+<p>控制光标运动使用buling（补零）函数</p>
+<p>获取地图huoqu()     计算雷的位置jisuan()</p>
+<p>如果计算函数返回False(比如这一局结束，没有可以确定的点)会转到用户操作，操作后重新定义光标位置，和是否清空列表lei</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="/2020/04/20/2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp/1587360236052.png" alt="1587360236052"></p>
+<p>这种前期没法出结果的通过继续计算下面数据可以获得</p>
+<p><img src="/2020/04/20/2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp/1587360280496.png" alt="1587360280496"></p>
+<p>中午关环境了，看不到最终结果了，不知道是不是这个思路</p>
+<p><img src="/2020/04/20/2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp/1587360390458.png" alt="1587360390458"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">p=remote(<span class="string">'39.97.210.182'</span>,<span class="string">'56666'</span>)</span><br><span class="line">context.log_level = <span class="string">'DEBUG'</span></span><br><span class="line">x=<span class="number">0</span></span><br><span class="line">y=<span class="number">0</span></span><br><span class="line">maa=[]</span><br><span class="line">lei=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">14</span>):</span><br><span class="line">	b=[]</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">14</span>):</span><br><span class="line">		b.append(<span class="number">0</span>)</span><br><span class="line">	lei.append(b)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">huoqu</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="keyword">global</span> maa</span><br><span class="line">	maa=[]</span><br><span class="line">	p.sendline(<span class="string">'q'</span>)</span><br><span class="line">	p.recvuntil(<span class="string">'------------------------------'</span>)</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">14</span>):</span><br><span class="line">		p.recvuntil(<span class="string">'|'</span>)</span><br><span class="line">		a=p.recvuntil(<span class="string">'\n'</span>)</span><br><span class="line">		b=[]</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(a),<span class="number">2</span>):</span><br><span class="line">			b.append(a[i])</span><br><span class="line">		maa.append(b)</span><br><span class="line">	print(maa)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">buling</span><span class="params">(xx,yy)</span>:</span></span><br><span class="line">	<span class="keyword">global</span> x</span><br><span class="line">	<span class="keyword">global</span> y</span><br><span class="line">	<span class="keyword">if</span> xx-x&gt;<span class="number">0</span>:</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,xx-x):</span><br><span class="line">			p.sendline(<span class="string">'d'</span>)</span><br><span class="line">			p.recvuntil(<span class="string">'14|'</span>)</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,x-xx):</span><br><span class="line">			p.sendline(<span class="string">'a'</span>)</span><br><span class="line">			p.recvuntil(<span class="string">'14|'</span>)</span><br><span class="line">	<span class="keyword">if</span> yy-y&gt;<span class="number">0</span>:</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,yy-y):</span><br><span class="line">			p.sendline(<span class="string">'s'</span>)</span><br><span class="line">			p.recvuntil(<span class="string">'14|'</span>)</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,y-yy):</span><br><span class="line">			p.sendline(<span class="string">'w'</span>)</span><br><span class="line">			p.recvuntil(<span class="string">'14|'</span>)</span><br><span class="line">	print(<span class="string">'come ok'</span>)		</span><br><span class="line">	x=xx</span><br><span class="line">	y=yy</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">jisuan</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">14</span>):</span><br><span class="line">		<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">14</span>):</span><br><span class="line">			<span class="keyword">if</span> <span class="keyword">not</span> maa[i][j]==<span class="string">' '</span>:</span><br><span class="line">				count=<span class="number">0</span></span><br><span class="line">				countkai=<span class="number">0</span></span><br><span class="line">				<span class="keyword">for</span> ii <span class="keyword">in</span> range(i<span class="number">-1</span>,i+<span class="number">2</span>):</span><br><span class="line">					<span class="keyword">if</span> ii&lt;<span class="number">0</span> <span class="keyword">or</span> ii&gt;<span class="number">13</span>:</span><br><span class="line">						<span class="keyword">continue</span></span><br><span class="line">					<span class="keyword">for</span> jj <span class="keyword">in</span> range(j<span class="number">-1</span>,j+<span class="number">2</span>):</span><br><span class="line">						<span class="keyword">if</span> jj&lt;<span class="number">0</span> <span class="keyword">or</span> jj&gt;<span class="number">13</span>:</span><br><span class="line">							<span class="keyword">continue</span></span><br><span class="line">						<span class="keyword">if</span> ii==i <span class="keyword">and</span> jj==j:</span><br><span class="line">							<span class="keyword">continue</span></span><br><span class="line">						<span class="keyword">if</span> maa[ii][jj]==<span class="string">' '</span>:</span><br><span class="line">							count+=<span class="number">1</span></span><br><span class="line">						<span class="keyword">if</span> <span class="keyword">not</span> maa[ii][jj]==<span class="string">' '</span>:</span><br><span class="line">							countkai+=<span class="number">1</span></span><br><span class="line">				<span class="keyword">if</span> countkai==<span class="number">8</span>-int(maa[i][j]): </span><br><span class="line">					<span class="keyword">for</span> ii <span class="keyword">in</span> range(i<span class="number">-1</span>,i+<span class="number">2</span>):</span><br><span class="line">						<span class="keyword">if</span> ii&lt;<span class="number">0</span> <span class="keyword">or</span> ii&gt;<span class="number">13</span>:</span><br><span class="line">							<span class="keyword">continue</span></span><br><span class="line">						<span class="keyword">for</span> jj <span class="keyword">in</span> range(j<span class="number">-1</span>,j+<span class="number">2</span>):</span><br><span class="line">							<span class="keyword">if</span> jj&lt;<span class="number">0</span> <span class="keyword">or</span> jj&gt;<span class="number">13</span>:</span><br><span class="line">								<span class="keyword">continue</span></span><br><span class="line">							<span class="keyword">if</span> ii==i <span class="keyword">and</span> jj==j:</span><br><span class="line">								<span class="keyword">continue</span></span><br><span class="line">							<span class="keyword">if</span> maa[ii][jj]==<span class="string">' '</span>:</span><br><span class="line">								lei[ii][jj]=<span class="number">1</span></span><br><span class="line">				countlei=<span class="number">0</span></span><br><span class="line">				<span class="keyword">for</span> ii <span class="keyword">in</span> range(i<span class="number">-1</span>,i+<span class="number">2</span>):</span><br><span class="line">					<span class="keyword">if</span> ii&lt;<span class="number">0</span> <span class="keyword">or</span> ii&gt;<span class="number">13</span>:</span><br><span class="line">						<span class="keyword">continue</span></span><br><span class="line">					<span class="keyword">for</span> jj <span class="keyword">in</span> range(j<span class="number">-1</span>,j+<span class="number">2</span>):</span><br><span class="line">						<span class="keyword">if</span> jj&lt;<span class="number">0</span> <span class="keyword">or</span> jj&gt;<span class="number">13</span>:</span><br><span class="line">							<span class="keyword">continue</span></span><br><span class="line">						<span class="keyword">if</span> ii==i <span class="keyword">and</span> jj==j:</span><br><span class="line">							<span class="keyword">continue</span></span><br><span class="line">						<span class="keyword">if</span> lei[ii][jj]==<span class="number">1</span>:</span><br><span class="line">							countlei+=<span class="number">1</span></span><br><span class="line">				<span class="keyword">if</span> countlei==int(maa[i][j]):</span><br><span class="line">					<span class="keyword">for</span> ii <span class="keyword">in</span> range(i<span class="number">-1</span>,i+<span class="number">2</span>):</span><br><span class="line">						<span class="keyword">if</span> ii&lt;<span class="number">0</span> <span class="keyword">or</span> ii&gt;<span class="number">13</span>:</span><br><span class="line">							<span class="keyword">continue</span></span><br><span class="line">						<span class="keyword">for</span> jj <span class="keyword">in</span> range(j<span class="number">-1</span>,j+<span class="number">2</span>):</span><br><span class="line">							<span class="keyword">if</span> jj&lt;<span class="number">0</span> <span class="keyword">or</span> jj&gt;<span class="number">13</span>:</span><br><span class="line">								<span class="keyword">continue</span></span><br><span class="line">							<span class="keyword">if</span> ii==i <span class="keyword">and</span> jj==j:</span><br><span class="line">								<span class="keyword">continue</span></span><br><span class="line">							<span class="keyword">if</span> maa[ii][jj]==<span class="string">' '</span> <span class="keyword">and</span> lei[ii][jj]==<span class="number">0</span>:</span><br><span class="line">								buling(jj,ii)</span><br><span class="line">								<span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">					</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">p.sendafter(<span class="string">'!'</span>,<span class="string">'a\n'</span>)</span><br><span class="line">p.recvuntil(<span class="string">'14|'</span>)</span><br><span class="line">buling(<span class="number">3</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">	huoqu()</span><br><span class="line">	<span class="keyword">if</span> jisuan()==<span class="literal">False</span>:</span><br><span class="line">		p.interactive()</span><br><span class="line">		x=input(<span class="string">'now x:'</span>)</span><br><span class="line">		y=input(<span class="string">'now y:'</span>)</span><br><span class="line">		ret=input(<span class="string">'a new game?'</span>)</span><br><span class="line">		<span class="keyword">if</span> ret==<span class="number">1</span>:</span><br><span class="line">			<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">14</span>):</span><br><span class="line">				<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">14</span>):</span><br><span class="line">					lei[i][j]=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>奥利给<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/1649815010.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/1422832397.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -203,16 +256,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/20/2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/20/2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/04/2020-02-04-hgame%E6%99%BA%E6%A2%B0%E5%8D%B1%E6%9C%BAwp/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hgame智械危机wp</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -232,600 +344,31 @@
 
 
 
-
   
-    <article id="post-2020-02-04-hgame智械危机wp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/04/2020-02-04-hgame%E6%99%BA%E6%A2%B0%E5%8D%B1%E6%9C%BAwp/">hgame智械危机wp</a>
-    </h1>
   
 
-        
-        <a href="/2020/02/04/2020-02-04-hgame%E6%99%BA%E6%A2%B0%E5%8D%B1%E6%9C%BAwp/" class="archive-article-date">
-  	<time datetime="2020-02-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        加密文档 请输入密码阅读.<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/04/2020-02-04-hgame%E6%99%BA%E6%A2%B0%E5%8D%B1%E6%9C%BAwp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-1-22-BUUCTF刷题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/">BUUCTF寒假刷题笔记</a>
-    </h1>
   
 
-        
-        <a href="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-01-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>同学们过年好 新年冲冲冲！！</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-1-15-BUUctf-2nd复盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/17/2020-1-15-BUUctf-2nd%E5%A4%8D%E7%9B%98/">BUUctf-2nd复盘</a>
-    </h1>
   
 
-        
-        <a href="/2020/01/17/2020-1-15-BUUctf-2nd%E5%A4%8D%E7%9B%98/" class="archive-article-date">
-  	<time datetime="2020-01-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这学期一直在咕咕咕，期末考完还要搞启明星啥的- - 感觉大学也不轻松..趁在学校最后两天填下坑（好像机房关机了，没复现完）只做了几个基础题。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/17/2020-1-15-BUUctf-2nd%E5%A4%8D%E7%9B%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-2019-12-25-Venom&#39;sAIDPuzzle圣诞赛wp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/25/2019-12-25-Venom'sAIDPuzzle%E5%9C%A3%E8%AF%9E%E8%B5%9Bwp/">Venom&#39;s AID Puzzle圣诞赛wp</a>
-    </h1>
-  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "虎符ctf-Misc-扫雷wp",
+  owner: 'yikongge',
+  repo: 'yikongge.github.io',
+  oauth: {
+    client_id: '4f786e7ea331d845b491',
+    client_secret: 'dff4e5315680a11c322324b5331b529aea746a85',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
 
-        
-        <a href="/2019/12/25/2019-12-25-Venom'sAIDPuzzle%E5%9C%A3%E8%AF%9E%E8%B5%9Bwp/" class="archive-article-date">
-  	<time datetime="2019-12-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>水了个一血，发布下writeup庆祝- -</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/25/2019-12-25-Venom'sAIDPuzzle%E5%9C%A3%E8%AF%9E%E8%B5%9Bwp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019-11-16-面向对象编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/16/2019-11-16-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">面向对象编程</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/16/2019-11-16-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2019-11-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上课平台：<a href="http://www.csgmooc.com/10054/index.html" target="_blank" rel="noopener">http://www.csgmooc.com/10054/index.html</a></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/16/2019-11-16-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019-11-16-成都大学校赛WP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/16/2019-11-16-%E6%88%90%E9%83%BD%E5%A4%A7%E5%AD%A6%E6%A0%A1%E8%B5%9BWP/">成都大学校赛wp</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/16/2019-11-16-%E6%88%90%E9%83%BD%E5%A4%A7%E5%AD%A6%E6%A0%A1%E8%B5%9BWP/" class="archive-article-date">
-  	<time datetime="2019-11-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>头一次这么畅快，写个writeup庆祝下- -</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/16/2019-11-16-%E6%88%90%E9%83%BD%E5%A4%A7%E5%AD%A6%E6%A0%A1%E8%B5%9BWP/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019-10-27-UNCTF新星赛wp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/">UNCTF新星赛wp</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/" class="archive-article-date">
-  	<time datetime="2019-10-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>= =平台关了 有的图没截全 有的忘了过程。。尽量写吧</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-lunwen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/30/lunwen/">基于Tensorflow的食堂菜价识别系统原理及实现</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/30/lunwen/" class="archive-article-date">
-  	<time datetime="2019-06-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>平时在食堂买饭时，有的师傅会不经意算错钱，而且新的二维码结算设备需要无线网络，操作复杂，付款要等待一段时间，显示不清楚，身边有的同学被收错过钱，然后要费好长的时间才能要回来。如果能实现这个菜价识别系统，就能自动计算菜价，自动收钱，省去人工操作。使学校食堂收费更规范化、系统化。对提高食堂服务效率和工作人员服务质量有重要意义。除了食堂使用，这套系统还可以用在一些半自助餐厅或者无人餐厅。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/30/lunwen/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -848,8 +391,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
