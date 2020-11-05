@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>麦窝客</title>
+  <title>CISCN华东南赛区php健康宝wp&amp;思考 | 麦窝客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ctf新人 buu菜鸡 Misc萌新玩家">
-<meta name="keywords" content="ctf,misc,buu,xiaomao">
-<meta property="og:type" content="website">
-<meta property="og:title" content="麦窝客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="链接：https:&#x2F;&#x2F;www.secpulse.com&#x2F;archives&#x2F;141956.html">
+<meta name="keywords" content="Writeup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CISCN华东南赛区php健康宝wp&amp;思考">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;26&#x2F;2020-09-23-CINSC-%E5%81%A5%E5%BA%B7%E5%AE%9D&#x2F;index.html">
 <meta property="og:site_name" content="麦窝客">
-<meta property="og:description" content="ctf新人 buu菜鸡 Misc萌新玩家">
+<meta property="og:description" content="链接：https:&#x2F;&#x2F;www.secpulse.com&#x2F;archives&#x2F;141956.html">
 <meta property="og:locale" content="zh-en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;26&#x2F;2020-09-23-CINSC-%E5%81%A5%E5%BA%B7%E5%AE%9D&#x2F;image-20200923090851818.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;26&#x2F;2020-09-23-CINSC-%E5%81%A5%E5%BA%B7%E5%AE%9D&#x2F;image-20200923091622174.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;26&#x2F;2020-09-23-CINSC-%E5%81%A5%E5%BA%B7%E5%AE%9D&#x2F;image-20200923094023605.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;26&#x2F;2020-09-23-CINSC-%E5%81%A5%E5%BA%B7%E5%AE%9D&#x2F;image-20200923153626377.png">
+<meta property="og:updated_time" content="2020-11-05T03:07:37.982Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;26&#x2F;2020-09-23-CINSC-%E5%81%A5%E5%BA%B7%E5%AE%9D&#x2F;image-20200923090851818.png">
   
     <link rel="alternative" href="/atom.xml" title="麦窝客" type="application/atom+xml">
   
@@ -156,16 +162,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-2020-09-23-CINSC-健康宝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-2020-09-23-CINSC-健康宝" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/26/2020-09-23-CINSC-%E5%81%A5%E5%BA%B7%E5%AE%9D/">CISCN华东南赛区php健康宝wp&amp;思考</a>
+    <h1 class="article-title" itemprop="name">
+      CISCN华东南赛区php健康宝wp&amp;思考
     </h1>
   
 
@@ -179,9 +183,62 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>链接：<a href="https://www.secpulse.com/archives/141956.html" target="_blank" rel="noopener">https://www.secpulse.com/archives/141956.html</a></p>
-        
+<a id="more"></a>
+
+<p>大家好，我是北京联合大学-小帽，也是本题的出题人。熟悉我的朋友们知道，平时喜欢做做欢乐杂项休闲休闲，所以这次的题目算是个披着web皮的半Misc。<br>由于微信小程序的开发简单、操作方便等优势，很多的公司、部门都喜欢制作小程序简化工作流程。在红蓝对抗、渗透测试等等场景，可能蓝队的信息中心会遗漏小程序这一边界（有可能是某个部门自己外包做的，信息中心根本不清楚）。而在程序开发过程中，开发者很容易信任某些用户输入，例如直接COPY官方文档中对麦克风、摄像头的操作而忘记了对上传的语音、视频检验。</p>
+<p>另：复现可能会上BUUOJ，敬请期待</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>打开题目就看到了熟悉的健康宝，</p>
+<p><img src="/2020/09/26/2020-09-23-CINSC-%E5%81%A5%E5%BA%B7%E5%AE%9D/image-20200923090851818.png" alt="image-20200923090851818"></p>
+<p>先试一下业务，有登录、查健康宝和到访信息登记三个。登录时有提交表单和上传图片，然后在查健康宝的地方可以显示。登录表单看起来没什么破绽；检查html，他并没有想象中的包含，直接给了路径但是文件名被强制改了。</p>
+<p><img src="/2020/09/26/2020-09-23-CINSC-%E5%81%A5%E5%BA%B7%E5%AE%9D/image-20200923091622174.png" alt="image-20200923091622174"></p>
+<p>在防疫登记那里，有一些样例二维码，扫描看到是json（是的，这是彩蛋，留了我校在使用的8个校区）</p>
+<p>扫描目录，在/<a href="http://www.zip得到部分源码（这是个hint，不然留的洞有点太脑洞了" target="_blank" rel="noopener">www.zip得到部分源码（这是个hint，不然留的洞有点太脑洞了</a></p>
+<p>在qr.php文件（也就是到放登记）看到用php扫描了刚刚上传的二维码，解json后将其中的id插入进数据库中。这里是没有任何检查的，进行insert注入即可。</p>
+<p><img src="/2020/09/26/2020-09-23-CINSC-%E5%81%A5%E5%BA%B7%E5%AE%9D/image-20200923094023605.png" alt="image-20200923094023605"></p>
+<p>给个payload，剩下的大家自行发挥。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos; and (case when (substr((select group_concat(flag) from flag) from 1 for 1 )=&apos;f&apos;) then sleep(3) else 1 end ),&apos;11&apos;);#</span><br></pre></td></tr></table></figure>
+
+<h2 id="引申"><a href="#引申" class="headerlink" title="引申"></a>引申</h2><p>平常遇到sql注入可以双写绕过、大小写绕过这些常见绕过时，直接用sqlmap的插件就可以了。但如果像这个题目一样中间有一些逻辑，就需要自己写脚本或者插件了。</p>
+<p>渗透测试时遇到这种较复杂的业务，直接上漏扫工具或sql注入工具就不顶用了。之前听了一个好思路，自己写个转换脚本做工具与靶机之间的agent，把接收的攻击请求转换后再发出去。</p>
+<p>抛砖引玉，用这个题目写了一个小demo👇。请求a的内容会转化进二维码转发给靶机</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> qrcode</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask,request,render_template,session,redirect,url_for</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">app = Flask(__name__)</span><br><span class="line">url=<span class="string">'http://127.0.0.1:807/qr.php'</span></span><br><span class="line"><span class="meta">@app.route('/',methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myfunc</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method==<span class="string">'GET'</span>:</span><br><span class="line">        img = qrcode.make(<span class="string">'&#123;'</span>+<span class="string">'"id":"&#123;&#125;","name":"1","address":"1","street":"1","phone":"1"'</span>.format(request.args.get(<span class="string">"a"</span>))+<span class="string">'&#125;'</span>)</span><br><span class="line">        img.save(<span class="string">'out.png'</span>)</span><br><span class="line">        files=&#123;<span class="string">'file'</span>:open(<span class="string">'out.png'</span>,<span class="string">'rb'</span>)&#125;</span><br><span class="line">        cookies=&#123;<span class="string">'PHPSESSID'</span>:<span class="string">'ae3ff2f561874eefa103929a9076da9a'</span>&#125;</span><br><span class="line">        req=requests.post(url,files=files,cookies=cookies)</span><br><span class="line">        <span class="comment">#req=requests.get(url,params=request.args)</span></span><br><span class="line">        <span class="keyword">return</span> req.text</span><br><span class="line">        <span class="comment">#return request.args.get("a")</span></span><br><span class="line">app.run(host=<span class="string">'0.0.0.0'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>用xray扫描<a href="http://10.12.104.60:5000/?a=1" target="_blank" rel="noopener">http://10.12.104.60:5000/?a=1</a> 发现sql注入漏洞</p>
+<p><img src="/2020/09/26/2020-09-23-CINSC-%E5%81%A5%E5%BA%B7%E5%AE%9D/image-20200923153626377.png" alt="image-20200923153626377"></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>奥利给<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/1649815010.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/1422832397.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -201,16 +258,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/26/2020-09-23-CINSC-%E5%81%A5%E5%BA%B7%E5%AE%9D/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/26/2020-09-23-CINSC-%E5%81%A5%E5%BA%B7%E5%AE%9D/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/24/2020-05-24-%E5%AE%89%E6%81%925%E6%9C%88%E6%9C%88%E8%B5%9B%E4%B8%A4%E4%B8%AA%E6%9C%89%E7%82%B9%E6%84%8F%E6%80%9D%E7%9A%84Misc/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">安恒5月月赛两个有点意思的Misc</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -230,680 +346,31 @@
 
 
 
-
-  
-    <article id="post-2020-05-24-安恒5月月赛两个有点意思的Misc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/24/2020-05-24-%E5%AE%89%E6%81%925%E6%9C%88%E6%9C%88%E8%B5%9B%E4%B8%A4%E4%B8%AA%E6%9C%89%E7%82%B9%E6%84%8F%E6%80%9D%E7%9A%84Misc/">安恒5月月赛两个有点意思的Misc</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/24/2020-05-24-%E5%AE%89%E6%81%925%E6%9C%88%E6%9C%88%E8%B5%9B%E4%B8%A4%E4%B8%AA%E6%9C%89%E7%82%B9%E6%84%8F%E6%80%9D%E7%9A%84Misc/" class="archive-article-date">
-  	<time datetime="2020-05-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>web题直到考点就是构造不出payload我太蔡了。。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/24/2020-05-24-%E5%AE%89%E6%81%925%E6%9C%88%E6%9C%88%E8%B5%9B%E4%B8%A4%E4%B8%AA%E6%9C%89%E7%82%B9%E6%84%8F%E6%80%9D%E7%9A%84Misc/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-04-20虎符ctf-Misc-扫雷wp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/20/2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp/">虎符ctf-Misc-扫雷wp</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/20/2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp/" class="archive-article-date">
-  	<time datetime="2020-04-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>比赛时链接人数太多，比较卡 游戏体验不太舒适，当时只搞了一个 见到0就把他四周的块都点开的脚本，其他都要手工操作。</p>
-<p>晚上在百度上检索到了有自动扫雷的脚本，学了下思路第二天做了一下。</p>
-<p>最后环境关了也没出结果 不确定思路到底是不是这样</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/20/2020-04-20%E8%99%8E%E7%AC%A6ctf-Misc-%E6%89%AB%E9%9B%B7wp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-02-04-hgame智械危机wp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/04/2020-02-04-hgame%E6%99%BA%E6%A2%B0%E5%8D%B1%E6%9C%BAwp/">hgame智械危机wp</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/04/2020-02-04-hgame%E6%99%BA%E6%A2%B0%E5%8D%B1%E6%9C%BAwp/" class="archive-article-date">
-  	<time datetime="2020-02-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>emm太懒了 懒得做题，听说hgame有个机器学习题还0解，去学了一下</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/04/2020-02-04-hgame%E6%99%BA%E6%A2%B0%E5%8D%B1%E6%9C%BAwp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-1-22-BUUCTF刷题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/">BUUCTF寒假刷题笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-01-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>同学们过年好 新年冲冲冲！！</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/25/2020-1-22-BUUCTF%E5%88%B7%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-1-15-BUUctf-2nd复盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/17/2020-1-15-BUUctf-2nd%E5%A4%8D%E7%9B%98/">BUUctf-2nd复盘</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/17/2020-1-15-BUUctf-2nd%E5%A4%8D%E7%9B%98/" class="archive-article-date">
-  	<time datetime="2020-01-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这学期一直在咕咕咕，期末考完还要搞启明星啥的- - 感觉大学也不轻松..趁在学校最后两天填下坑（好像机房关机了，没复现完）只做了几个基础题。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/17/2020-1-15-BUUctf-2nd%E5%A4%8D%E7%9B%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019-12-25-Venom&#39;sAIDPuzzle圣诞赛wp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/25/2019-12-25-Venom'sAIDPuzzle%E5%9C%A3%E8%AF%9E%E8%B5%9Bwp/">Venom&#39;s AID Puzzle圣诞赛wp</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/25/2019-12-25-Venom'sAIDPuzzle%E5%9C%A3%E8%AF%9E%E8%B5%9Bwp/" class="archive-article-date">
-  	<time datetime="2019-12-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>水了个一血，发布下writeup庆祝- -</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/25/2019-12-25-Venom'sAIDPuzzle%E5%9C%A3%E8%AF%9E%E8%B5%9Bwp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019-11-16-面向对象编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/16/2019-11-16-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">面向对象编程</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/16/2019-11-16-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2019-11-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上课平台：<a href="http://www.csgmooc.com/10054/index.html" target="_blank" rel="noopener">http://www.csgmooc.com/10054/index.html</a></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/16/2019-11-16-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019-11-16-成都大学校赛WP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/16/2019-11-16-%E6%88%90%E9%83%BD%E5%A4%A7%E5%AD%A6%E6%A0%A1%E8%B5%9BWP/">成都大学校赛wp</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/16/2019-11-16-%E6%88%90%E9%83%BD%E5%A4%A7%E5%AD%A6%E6%A0%A1%E8%B5%9BWP/" class="archive-article-date">
-  	<time datetime="2019-11-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>头一次这么畅快，写个writeup庆祝下- -</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/16/2019-11-16-%E6%88%90%E9%83%BD%E5%A4%A7%E5%AD%A6%E6%A0%A1%E8%B5%9BWP/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019-10-27-UNCTF新星赛wp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/">UNCTF新星赛wp</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/" class="archive-article-date">
-  	<time datetime="2019-10-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>= =平台关了 有的图没截全 有的忘了过程。。尽量写吧</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Writeup</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/27/2019-10-27-UNCTF%E6%96%B0%E6%98%9F%E8%B5%9Bwp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "CISCN华东南赛区php健康宝wp&amp;思考",
+  owner: 'yikongge',
+  repo: 'yikongge.github.io',
+  oauth: {
+    client_id: '4f786e7ea331d845b491',
+    client_secret: 'dff4e5315680a11c322324b5331b529aea746a85',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+
   
 
 
@@ -926,8 +393,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
